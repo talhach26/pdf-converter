@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<head>
+    <%- include('./partials/head'); %>
+</head>
+<html>
+
+<body>
+    <%- include('./partials/header'); %>
+        <div class="divider"></div>
+        <div class="quotation-area">
+            <div class="left">
+                <p class="user-info">
+                    <%= quotation.firstName %>
+                        <%= quotation.lastName %> (<%= quotation.userEmail %>)
+                </p>
+                <p class="user-info">
+                    <%= quotation.userType %> (<%= quotation.hospital %>)
+                </p>
+                <p class="user-info">
+                    <%= quotation.street %>,<%= quotation.city %>,<%= quotation.state %><br />
+                                <%= quotation.postalCode %>,<%= quotation.country %>
+                </p>
+                <div class="phone-info">
+                    <p>Attn: <%= quotation.firstName %>
+                            <%= quotation.lastName %>
+                    </p>
+                    <p>TEL: <%= quotation.phone %>
+                    </p>
+                </div>
+            </div>
+            <div class="right">
+                <div class="quotation-right">
+                    <div class="quotation-request">
+                        <p class="quotation-data "><b>INVOICE</b></p>
+                    </div>
+                    <div class="quotation-mid">
+                        <p style="text-align: center" class="quotation-data ">:</p>
+                    </div>
+                    <div class="quotation-ref">
+                        <p class="quotation-data "><b>
+                                <%= quotation.quotationId %>
+                            </b></p>
+                    </div>
+                </div>
+                <div class="quotation-right">
+                    <div class="quotation-request">
+                        <p class="quotation-data "><b>Terms</b></p>
+                    </div>
+                    <div class="quotation-mid">
+                        <p style="text-align: center" class="quotation-data ">:</p>
+                    </div>
+                    <div class="quotation-ref">
+                        <p class="quotation-data "><b>
+                                <%= quotation.terms %>
+                            </b></p>
+                    </div>
+                </div>
+                <div class="quotation-right">
+                    <div class="quotation-request">
+                        <p class="quotation-sub-data ">DO Number</p>
+                    </div>
+                    <div class="quotation-mid">
+                        <p style="text-align: center" class="quotation-data ">:</p>
+                    </div>
+                    <div class="quotation-ref">
+                        <p class="quotation-sub-data ">
+                            <%= quotation.doNumber %>
+                        </p>
+                    </div>
+                </div>
+                <div class="quotation-right">
+                    <div class="quotation-request">
+                        <p class="quotation-sub-data ">Your Ref.No</p>
+                    </div>
+                    <div class="quotation-mid">
+                        <p style="text-align: center" class="quotation-data ">:</p>
+                    </div>
+                    <div class="quotation-ref">
+                        <p class="quotation-sub-data ">
+                            <%= quotation.ref %>
+                        </p>
+                    </div>
+                </div>
+                <div class="quotation-right">
+                    <div class="quotation-request">
+                        <p class="quotation-sub-data ">Supplier Name</p>
+                    </div>
+                    <div class="quotation-mid">
+                        <p style="text-align: center" class="quotation-data ">:</p>
+                    </div>
+                    <div class="quotation-ref">
+                        <p class="quotation-sub-data ">
+                            <%= quotation.supplier %>
+                        </p>
+                    </div>
+                </div>
+                <div class="quotation-right">
+                    <div class="quotation-request">
+                        <p class="quotation-sub-data ">Date</p>
+                    </div>
+                    <div class="quotation-mid">
+                        <p style="text-align: center" class="quotation-data ">:</p>
+                    </div>
+                    <div class="quotation-ref">
+                        <p class="quotation-sub-data ">
+                            <%= quotation.date %>
+                        </p>
+                    </div>
+                </div>
+                <div class="quotation-right">
+                    <div class="quotation-request">
+                        <p class="quotation-sub-data ">Page</p>
+                    </div>
+                    <div class="quotation-mid">
+                        <p style="text-align: center" class="quotation-data ">:</p>
+                    </div>
+                    <div class="quotation-ref">
+                        <p class="quotation-sub-data ">1 of 1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 70px" class="divider"></div>
+        <table class="problem-table">
+            <tbody>
+                <tr class="table-header">
+                    <th>No</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Price/Unit</th>
+                </tr>
+                <% quotation.problemList.forEach(function(problem) { %>
+                    <tr class="problem-row">
+                        <td>
+                            <%= problem.id %>
+                        </td>
+                        <td>
+                            <%= problem.desc %>
+                        </td>
+                        <td>
+                            <%= problem.price %>
+                        </td>
+                        <td>
+                            <%= problem.amount %>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+        <div style="margin-top: 200px" class="divider"></div>
+        <div class="quotation-footer-area">
+            <div style="width: 45%; display: inline-block;">
+                <div>RINGGIT MALAYSIA: ONE HUNDRED EIGHTY RINGGIT MALAYSIA ONLY</div>
+             
+            </div>
+            <div style="width: 45%; display: inline-block; justify-content: center; text-align: end">
+                <div style="display: inline-block">
+                    <div class="quotation-right-area">
+                        <div style="display:inline-block">
+                            <p class="quotation-sub-data "><b>Gross</b></p>
+                        </div>
+                        <div style="margin: 0 10px; display: inline-block" >
+                            <p style="text-align: center" class="quotation-data ">:</p>
+                        </div>
+                    </div>
+                    <div class="quotation-right-area">
+                        <div style="display:inline-block">
+                            <p class="quotation-sub-data ">-Discount</p>
+                        </div>
+                        <div style="margin: 0 10px; display: inline-block" class="">
+                            <p style="text-align: center" class="quotation-data ">:</p>
+                        </div>
+                    </div>
+                    <div class="quotation-right-area">
+                        <div style="display:inline-block">
+                            <p class="quotation-sub-data ">+Sales Tax</p>
+                        </div>
+                        <div style="margin: 0 10px; display: inline-block" class="">
+                            <p style="text-align: center" class="quotation-data ">:</p>
+                        </div>
+                    </div>
+                    <div class="quotation-right-area">
+                        <div style="display:inline-block">
+                            <p class="quotation-sub-data "><b>TotalRM</b></p>
+                        </div>
+                        <div style="margin: 0 10px; display: inline-block" class="">
+                            <p style="text-align: center" class="quotation-data ">:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="quotation-payment">
+                    <div style="padding-right: 5px">
+                        <%= quotation.gross %>
+                    </div>
+                    <div style="padding-right: 5px">
+                        <%= quotation.discount %>
+                    </div>
+                    <div style="padding-right: 5px">
+                        <%= quotation.saleTax %>
+                    </div>
+                    <div style=" border-top: 2px solid black; padding-right: 5px;">
+                        <%= quotation.totalRM %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        <div style="display: flex; margin-top: 120px; width: 100%;">
+            <div class="footer-bottom-left">
+                <div style="text-align:center" class="quotation-left">
+                    <div>
+                        <p style="text-align:center" class="quotation-sub-data ">(Digital sign Supplier)</p>
+                    </div>
+                    <div class="sign-divider"></div>
+                </div>
+                <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px; text-align: center;"
+                    class="quotation-left">
+                    <div style="display: inline-block;">
+                        <p class="quotation-sub-data "><b>Authorized Signature</b></p>
+                    </div>
+                    <div style="margin: 0 10px; display: inline-block">
+                        <p style="text-align: center" class="quotation-data ">:</p>
+                    </div>
+                    <div style="display: inline-block;">
+                        <p class="quotation-sub-data ">
+                            <%= quotation.supplier %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-right">
+                <div style="text-align:center" class="quotation-left">
+                    <div>
+                        <p style="text-align:center" class="quotation-sub-data ">(Digital sign Requestor)</p>
+                    </div>
+                    <div class="sign-divider"></div>
+                </div>
+                <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px; text-align: center"
+                    class="quotation-left">
+                    <div style="display: inline-block;">
+                        <p class="quotation-sub-data "><b>Received By</b></p>
+                    </div>
+                    <div style="margin: 0 10px; display: inline-block">
+                        <p style="text-align: center" class="quotation-data ">:</p>
+                    </div>
+                    <div style="display: inline-block;">
+                        <p class="quotation-sub-data ">
+                            <%= quotation.firstName %>
+                                <%= quotation.lastName %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

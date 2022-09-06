@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<head>
+    <%- include('./partials/head'); %>
+</head>
+<html>
+
+<body>
+    <%- include('./partials/header'); %>
+    <div class="divider"></div>
+    <div class="quotation-area">
+        <div class="left">
+            <p class="user-info">
+                <%= quotation.firstName %>
+                    <%= quotation.lastName %> (<%= quotation.userEmail %>)
+            </p>
+            <p class="user-info">
+                <%= quotation.userType %> (<%= quotation.hospital %>)
+            </p>
+            <p class="user-info">
+                <%= quotation.street %>,<%= quotation.city %>,<%= quotation.state %><br />
+                            <%= quotation.postalCode %>,<%= quotation.country %>
+            </p>
+            <div class="phone-info">
+                <p >Attn: <%= quotation.firstName %>
+                        <%= quotation.lastName %>
+                </p>
+                <p style=" margin-left: 25px">TEL: <%= quotation.phone %>
+                </p>
+            </div>
+        </div>
+        <div class="right">
+            <div class="quotation-right">
+                <div class="quotation-request">
+                    <p class="quotation-data "><b>QUOTATION REQUEST</b></p>
+                </div>
+                <div class="quotation-mid">
+                    <p style="text-align: center" class="quotation-data ">:</p>
+                </div>
+                <div class="quotation-ref">
+                    <p class="quotation-data "><b>
+                            <%= quotation.quotationId %>
+                        </b></p>
+                </div>
+            </div>
+            <div class="quotation-right">
+                <div class="quotation-request">
+                    <p class="quotation-sub-data ">Your Ref</p>
+                </div>
+                <div class="quotation-mid">
+                    <p style="text-align: center" class="quotation-data ">:</p>
+                </div>
+                <div class="quotation-ref">
+                    <p class="quotation-sub-data ">
+                        <%= quotation.ref %>
+                    </p>
+                </div>
+            </div>
+            <div class="quotation-right">
+                <div class="quotation-request">
+                    <p class="quotation-sub-data ">Supplier Name</p>
+                </div>
+                <div class="quotation-mid">
+                    <p style="text-align: center" class="quotation-data ">:</p>
+                </div>
+                <div class="quotation-ref">
+                    <p class="quotation-sub-data ">
+                        <%= quotation.supplier %>
+                    </p>
+                </div>
+            </div>
+            <div class="quotation-right">
+                <div class="quotation-request">
+                    <p class="quotation-sub-data ">Date</p>
+                </div>
+                <div class="quotation-mid">
+                    <p style="text-align: center" class="quotation-data ">:</p>
+                </div>
+                <div class="quotation-ref">
+                    <p class="quotation-sub-data ">
+                        <%= quotation.date %>
+                    </p>
+                </div>
+            </div>
+            <div class="quotation-right">
+                <div class="quotation-request">
+                    <p class="quotation-sub-data ">Page</p>
+                </div>
+                <div class="quotation-mid">
+                    <p style="text-align: center" class="quotation-data ">:</p>
+                </div>
+                <div class="quotation-ref">
+                    <p class="quotation-sub-data ">1 of 1</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="request-type">
+        <p>We kindly request you to submit your quotation for <b><%= quotation.serviceType %></b></p>
+    </div>
+    <div class="divider"></div>
+    <table class="problem-table">
+        <tbody>
+            <tr class="table-header">
+                <th>No</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price/Unit</th>
+            </tr>
+            <% quotation.problemList.forEach(function(problem) { %>
+                <tr class="problem-row">
+                    <td ><%= problem.id %></td>
+                    <td><%= problem.desc %></td>
+                </tr>
+                <%  }) %>   
+        </tbody>
+    </table>
+    <div style="margin-top: 200px" class="divider"></div>
+    <div class="quotation-footer">
+        <div class="quotation-footer-right">
+            <div style="display: inline-block" >
+                <p class="quotation-sub-data ">Person Incharge</p>
+            </div>
+            <div style="margin: 0 10px; display: inline-block" class="">
+                <p style="text-align: center" class="quotation-data ">:</p>
+            </div>
+            <div style="display: inline-block">
+                <p class="quotation-sub-data ">
+                    <%= quotation.firstName %> <%= quotation.lastName %>
+                </p>
+            </div>
+        </div>
+        <div class="quotation-footer-right">
+            <div style="display: inline-block" >
+                <p class="quotation-sub-data ">Date</p>
+            </div>
+            <div style="margin: 0 10px; display: inline-block" class="">
+                <p style="text-align: center" class="quotation-data ">:</p>
+            </div>
+            <div style="display: inline-block">
+                <p class="quotation-sub-data ">
+                    21/09/2022
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
